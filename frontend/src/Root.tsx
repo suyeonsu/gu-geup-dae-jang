@@ -1,20 +1,21 @@
-import { useState } from 'react'
-import { BrowserRouter as Switch, Outlet } from "react-router-dom";
-import { RecoilRoot } from "recoil";
-import styled from 'styled-components'
+import { useState } from 'react';
+import { BrowserRouter as Switch, Outlet } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import styled from 'styled-components';
+import Socket from '/src/socket/Socket';
 
 //기본 틀 위치 (변경 가능)
 const Container = styled.div`
   background-color: #6fff00;
-  font-family: 'Pretendard-Regular';  
+  font-family: 'Pretendard-Regular';
   display: flex;
   flex-direction: column;
-`
+`;
 const Wrapper = styled.div`
   background-color: #00d5ff;
   display: flex;
   margin-top: 90px;
-`
+`;
 const OutletBox = styled.div`
   background-color: #001eff;
   width: 100%;
@@ -32,11 +33,12 @@ function App() {
       <Wrapper>
         <OutletBox>
           {/* 여기에서 페이지 끼워짐 */}
+          <Socket />
           <Outlet />
         </OutletBox>
       </Wrapper>
     </Container>
-  )
+  );
 }
 
 function Root() {
